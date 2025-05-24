@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { BadgeHd, Badge4k, MonitorPlay, Youtube, Film, Tv, Drama } from 'lucide-react';
+import { MonitorPlay, Youtube, Film, Tv, Drama, Clapperboard } from 'lucide-react';
 
 // Platform Icons
 // Using Lucide icons as placeholders or generic representations.
@@ -25,8 +25,14 @@ export const platformIcons: Record<string, LucideIcon | undefined> = {
 export const SDIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <span className="text-xs font-semibold px-1.5 py-0.5 rounded bg-muted text-muted-foreground" {...props}>SD</span>
 );
-export const HDIcon: LucideIcon = BadgeHd;
-export const FourKIcon: LucideIcon = Badge4k;
+
+export const HDIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <span className="text-xs font-semibold px-1.5 py-0.5 rounded bg-muted text-muted-foreground" {...props}>HD</span>
+);
+
+export const FourKIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <span className="text-xs font-semibold px-1.5 py-0.5 rounded bg-muted text-muted-foreground" {...props}>4K</span>
+);
 
 export const qualityIcons: Record<string, LucideIcon | React.FC<React.SVGProps<SVGSVGElement>>> = {
   'SD': SDIcon,
