@@ -82,6 +82,7 @@ export default function RootLayout({
           fontSans.variable,
           fontGeistSans.variable
         )}
+        suppressHydrationWarning // Added to address body attribute mismatches
       >
         {children}
         <Toaster />

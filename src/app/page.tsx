@@ -20,10 +20,13 @@ export default function HomePage() {
   });
   const [isAiDialogOpen, setIsAiDialogOpen] = useState(false);
   const [allContent, setAllContent] = useState<ContentItem[]>([]);
+  const [footerYear, setFooterYear] = useState<string>('');
 
   useEffect(() => {
     // Simulate fetching data
     setAllContent(mockContentItems);
+    // Set year on client-side after hydration
+    setFooterYear(new Date().getFullYear().toString());
   }, []);
 
   const filteredContent = useMemo(() => {
@@ -80,7 +83,7 @@ export default function HomePage() {
       <AiRecommendationsDialog isOpen={isAiDialogOpen} onOpenChange={setIsAiDialogOpen} />
       <Toaster />
       <footer className="bg-card text-center p-4 border-t mt-auto">
-        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} StreamFind. All rights reserved.</p>
+        <p className="text-sm text-muted-foreground">&copy; {footerYear || new Date().getFullYear()} StreamFind. All rights reserved.</p>
       </footer>
     </div>
   );
